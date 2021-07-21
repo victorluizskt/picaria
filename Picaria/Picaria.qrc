@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="blue">images/BolaAzul.png</file>
+        <file alias="empty">images/BolaMarcacao.png</file>
+        <file alias="selectable">images/BolaPodeJogar.png</file>
+        <file alias="red">images/BolaVermelha.png</file>
+        <file alias="grid">images/Fundo.png</file>
+        <file alias="gridRefactor">images/FundoRefactor.png</file>
+    </qresource>
+</RCC>
