@@ -25,11 +25,11 @@ QT_BEGIN_NAMESPACE
 class Ui_Picaria
 {
 public:
+    QAction *actionReset;
+    QAction *action9Buracos;
     QAction *actionSair;
+    QAction *action13Buracos;
     QAction *actionSobre;
-    QAction *actionSair_2;
-    QAction *action13_Buracos;
-    QAction *actionSobre_2;
     QWidget *centralwidget;
     Hole *hole00;
     Hole *hole01;
@@ -42,8 +42,8 @@ public:
     Hole *hole02;
     QMenuBar *menubar;
     QMenu *menuJogo;
+    QMenu *menuModo;
     QMenu *menuAjuda;
-    QMenu *menuAjuda_2;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Picaria)
@@ -51,16 +51,16 @@ public:
         if (Picaria->objectName().isEmpty())
             Picaria->setObjectName(QString::fromUtf8("Picaria"));
         Picaria->resize(500, 542);
+        actionReset = new QAction(Picaria);
+        actionReset->setObjectName(QString::fromUtf8("actionReset"));
+        action9Buracos = new QAction(Picaria);
+        action9Buracos->setObjectName(QString::fromUtf8("action9Buracos"));
         actionSair = new QAction(Picaria);
         actionSair->setObjectName(QString::fromUtf8("actionSair"));
+        action13Buracos = new QAction(Picaria);
+        action13Buracos->setObjectName(QString::fromUtf8("action13Buracos"));
         actionSobre = new QAction(Picaria);
         actionSobre->setObjectName(QString::fromUtf8("actionSobre"));
-        actionSair_2 = new QAction(Picaria);
-        actionSair_2->setObjectName(QString::fromUtf8("actionSair_2"));
-        action13_Buracos = new QAction(Picaria);
-        action13_Buracos->setObjectName(QString::fromUtf8("action13_Buracos"));
-        actionSobre_2 = new QAction(Picaria);
-        actionSobre_2->setObjectName(QString::fromUtf8("actionSobre_2"));
         centralwidget = new QWidget(Picaria);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setMinimumSize(QSize(500, 500));
@@ -204,23 +204,23 @@ public:
         menubar->setGeometry(QRect(0, 0, 500, 20));
         menuJogo = new QMenu(menubar);
         menuJogo->setObjectName(QString::fromUtf8("menuJogo"));
+        menuModo = new QMenu(menubar);
+        menuModo->setObjectName(QString::fromUtf8("menuModo"));
         menuAjuda = new QMenu(menubar);
         menuAjuda->setObjectName(QString::fromUtf8("menuAjuda"));
-        menuAjuda_2 = new QMenu(menubar);
-        menuAjuda_2->setObjectName(QString::fromUtf8("menuAjuda_2"));
         Picaria->setMenuBar(menubar);
         statusbar = new QStatusBar(Picaria);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         Picaria->setStatusBar(statusbar);
 
         menubar->addAction(menuJogo->menuAction());
+        menubar->addAction(menuModo->menuAction());
         menubar->addAction(menuAjuda->menuAction());
-        menubar->addAction(menuAjuda_2->menuAction());
+        menuJogo->addAction(actionReset);
         menuJogo->addAction(actionSair);
-        menuJogo->addAction(actionSair_2);
+        menuModo->addAction(action9Buracos);
+        menuModo->addAction(action13Buracos);
         menuAjuda->addAction(actionSobre);
-        menuAjuda->addAction(action13_Buracos);
-        menuAjuda_2->addAction(actionSobre_2);
 
         retranslateUi(Picaria);
 
@@ -230,14 +230,14 @@ public:
     void retranslateUi(QMainWindow *Picaria)
     {
         Picaria->setWindowTitle(QApplication::translate("Picaria", "Picaria", nullptr));
-        actionSair->setText(QApplication::translate("Picaria", "Novo", nullptr));
-        actionSobre->setText(QApplication::translate("Picaria", "9 Buracos", nullptr));
-        actionSair_2->setText(QApplication::translate("Picaria", "Sair", nullptr));
-        action13_Buracos->setText(QApplication::translate("Picaria", "13 Buracos", nullptr));
-        actionSobre_2->setText(QApplication::translate("Picaria", "Sobre", nullptr));
+        actionReset->setText(QApplication::translate("Picaria", "Novo", nullptr));
+        action9Buracos->setText(QApplication::translate("Picaria", "9 Buracos", nullptr));
+        actionSair->setText(QApplication::translate("Picaria", "Sair", nullptr));
+        action13Buracos->setText(QApplication::translate("Picaria", "13 Buracos", nullptr));
+        actionSobre->setText(QApplication::translate("Picaria", "Sobre", nullptr));
         menuJogo->setTitle(QApplication::translate("Picaria", "Jogo", nullptr));
-        menuAjuda->setTitle(QApplication::translate("Picaria", "Modo", nullptr));
-        menuAjuda_2->setTitle(QApplication::translate("Picaria", "Ajuda", nullptr));
+        menuModo->setTitle(QApplication::translate("Picaria", "Modo", nullptr));
+        menuAjuda->setTitle(QApplication::translate("Picaria", "Ajuda", nullptr));
     } // retranslateUi
 
 };

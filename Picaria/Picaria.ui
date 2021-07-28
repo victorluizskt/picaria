@@ -472,48 +472,48 @@
     <property name="title">
      <string>Jogo</string>
     </property>
+    <addaction name="actionReset"/>
     <addaction name="actionSair"/>
-    <addaction name="actionSair_2"/>
    </widget>
-   <widget class="QMenu" name="menuAjuda">
+   <widget class="QMenu" name="menuModo">
     <property name="title">
      <string>Modo</string>
     </property>
-    <addaction name="actionSobre"/>
-    <addaction name="action13_Buracos"/>
+    <addaction name="action9Buracos"/>
+    <addaction name="action13Buracos"/>
    </widget>
-   <widget class="QMenu" name="menuAjuda_2">
+   <widget class="QMenu" name="menuAjuda">
     <property name="title">
      <string>Ajuda</string>
     </property>
-    <addaction name="actionSobre_2"/>
+    <addaction name="actionSobre"/>
    </widget>
    <addaction name="menuJogo"/>
+   <addaction name="menuModo"/>
    <addaction name="menuAjuda"/>
-   <addaction name="menuAjuda_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionSair">
+  <action name="actionReset">
    <property name="text">
     <string>Novo</string>
    </property>
   </action>
-  <action name="actionSobre">
+  <action name="action9Buracos">
    <property name="text">
     <string>9 Buracos</string>
    </property>
   </action>
-  <action name="actionSair_2">
+  <action name="actionSair">
    <property name="text">
     <string>Sair</string>
    </property>
   </action>
-  <action name="action13_Buracos">
+  <action name="action13Buracos">
    <property name="text">
     <string>13 Buracos</string>
    </property>
   </action>
-  <action name="actionSobre_2">
+  <action name="actionSobre">
    <property name="text">
     <string>Sobre</string>
    </property>

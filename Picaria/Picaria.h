@@ -7,6 +7,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Picaria; }
 QT_END_NAMESPACE
 
+class Hole;
+
 class Picaria : public QMainWindow {
     Q_OBJECT
 
@@ -16,9 +18,12 @@ public:
 
 private:
     Ui::Picaria *ui;
+    Hole* m_holes[9];
 
 private slots:
-    void play();
+    void play(int id);
+    void reset();
+    void showAbout();
 };
 
 #endif // PICARIA_H

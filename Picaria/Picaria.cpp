@@ -2,6 +2,8 @@
 #include "ui_Picaria.h"
 
 #include <QDebug>//)
+#include <QSignalMapper>
+#include <QMessageBox>
 
 Picaria::Picaria(QWidget *parent)
     : QMainWindow(parent)
@@ -14,13 +16,44 @@ Picaria::Picaria(QWidget *parent)
     qDebug() << "row: " <<  ui->hole00->row();
     qDebug() << "col: " <<  ui->hole00->col();
 
-    QObject::connect(ui->hole00, SIGNAL(clicked(bool)), this, SLOT(play()));
+    QObject::connect(ui->actionSair, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
+    QObject::connect(ui->actionReset, SIGNAL(triggered(bool)), this, SLOT(reset()));
+    QObject::connect(ui->actionSobre, SIGNAL(triggered(bool)), this, SLOT(showAbout()));
+    QSignalMapper*  map = new QSignalMapper(this);
+    for(int id = 0; id < 9; id++) {
+        int r = id / 3;
+        int c = id % 3;
+        Hole* hole = this->findChild<Hole*>(QString("hole%1%2").arg(r).arg(c));
+        Q_ASSERT(hole != 0);
+
+        m_holes[id] = hole;
+        map->setMapping(hole, id);
+        QObject::connect(hole, SIGNAL(clicked(bool)), map, SLOT(map()));
+    }
+
+    QObject::connect(map, SIGNAL(mapped(int)), this, SLOT(play(int)));
 }
 
 Picaria::~Picaria() {
     delete ui;
 }
 
-void Picaria::play() {
-    qDebug() << "Botão pressionado";
+void Picaria::play(int id) {
+    Hole* hole = m_holes[id];
+
+    qDebug() << "row: " << hole->row();
+    qDebug() << "col: " << hole->col();
+
+    hole->setState(Hole::Blue);
+}
+
+void Picaria::reset(){
+    for( int id = 0; id < 9; id++){
+        Hole* hole = m_holes[id];
+        hole->setState(Hole::Empty);
+    }
+}
+
+void Picaria::showAbout() {
+    QMessageBox::information(this, tr("Picaria"), tr("Victor Luiz, victorluizcefet@gmail.com \n \n Vitor Laguardia, vitor.laguardia@hotmail.com"));
 }
