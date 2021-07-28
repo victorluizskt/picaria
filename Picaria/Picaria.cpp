@@ -21,9 +21,9 @@ Picaria::Picaria(QWidget *parent)
     QObject::connect(ui->actionSobre, SIGNAL(triggered(bool)), this, SLOT(showAbout()));
     QSignalMapper*  map = new QSignalMapper(this);
     for(int id = 0; id < 9; id++) {
-        int r = id / 3;
-        int c = id % 3;
-        Hole* hole = this->findChild<Hole*>(QString("hole%1%2").arg(r).arg(c));
+        int row = id / 3;
+        int col = id % 3;
+        Hole* hole = this->findChild<Hole*>(QString("hole%1%2").arg(row).arg(col));
         Q_ASSERT(hole != 0);
 
         m_holes[id] = hole;
