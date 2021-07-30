@@ -21,6 +21,45 @@ Hole::State player2state(Picaria::Player player) {
     return player == Picaria::RedPlayer ? Hole::RedState : Hole::BlueState;
 }
 
+void Picaria::checkNeighborhood(Hole* hole) {
+    if(hole->objectName() == "hole01"){
+        emptyLocale("hole01");
+    } else if(hole->objectName() == "hole02"){
+         emptyLocale("hole02");
+    } else if(hole->objectName() == "hole03"){
+       emptyLocale("hole03");
+    } else if(hole->objectName() == "hole04"){
+        emptyLocale("hole04");
+    } else if(hole->objectName() == "hole05"){
+        emptyLocale("hole05");
+    } else if(hole->objectName() == "hole06"){
+        emptyLocale("hole06");
+    } else if(hole->objectName() == "hole07"){
+        emptyLocale("hole07");
+    } else if(hole->objectName() == "hole08"){
+        emptyLocale("hole08");
+    } else if(hole->objectName() == "hole09"){
+        emptyLocale("hole09");
+    } else if(hole->objectName() == "hole10"){
+        emptyLocale("hole10");
+    } else if(hole->objectName() == "hole11"){
+        emptyLocale("hole11");
+    } else if(hole->objectName() == "hole12"){
+        emptyLocale("hole12");
+    } else if(hole->objectName() == "hole13"){
+       emptyLocale("hole13");
+    }
+}
+
+void Picaria::emptyLocale(std::string holeName){
+    for(int i = 0; i < 9; i++) {
+      if(cont >= 5 && !m_holes[i]->state()){
+            qDebug() << "Este lugar está vazio: " << m_holes[i];
+      }
+    }
+}
+
+
 Picaria::Picaria(QWidget *parent)
     : QMainWindow(parent),
       ui(new Ui::Picaria),
@@ -85,22 +124,30 @@ void Picaria::setMode(Picaria::Mode mode) {
 }
 
 void Picaria::switchPlayer() {
-    m_player = m_player == Picaria::RedPlayer ?
-                    Picaria::BluePlayer : Picaria::RedPlayer;
-    this->updateStatusBar();
+    if( cont < 6){
+      m_player = m_player == Picaria::RedPlayer ?
+                   Picaria::BluePlayer : Picaria::RedPlayer;
+      this->updateStatusBar();
+      cont++;
+    }
 }
 
 void Picaria::play(int id) {
     Hole* hole = m_holes[id];
 
     qDebug() << "clicked on: " << hole->objectName();
+    if(cont < 6){
+        hole->setState(player2state(m_player));
+    }
 
-    hole->setState(player2state(m_player));
+    checkNeighborhood(hole);
+
     this->switchPlayer();
 }
 
 void Picaria::reset() {
     // Reset each hole.
+    cont = 0;
     for (int id = 0; id < 13; ++id) {
         Hole* hole = m_holes[id];
         hole->reset();
@@ -131,6 +178,7 @@ void Picaria::showAbout() {
 }
 
 void Picaria::updateMode(QAction* action) {
+    cont = 0;
     if (action == ui->action9holes)
         this->setMode(Picaria::NineHoles);
     else if (action == ui->action13holes)

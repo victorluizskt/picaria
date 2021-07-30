@@ -2,6 +2,7 @@
 #define PICARIA_H
 
 #include <QMainWindow>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -49,7 +50,10 @@ private:
     Mode m_mode;
     Player m_player;
     Phase m_phase;
+    int cont = 0;
 
+    void emptyLocale(std::string hole);
+    void checkNeighborhood(Hole* hole);
     void switchPlayer();
 
 private slots:
