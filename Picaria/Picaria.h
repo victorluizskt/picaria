@@ -50,6 +50,7 @@ private:
     Mode m_mode;
     Player m_player;
     Phase m_phase;
+
     int cont = 0;
 
     void emptyLocale(std::string hole);

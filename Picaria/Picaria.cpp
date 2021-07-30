@@ -52,13 +52,12 @@ void Picaria::checkNeighborhood(Hole* hole) {
 }
 
 void Picaria::emptyLocale(std::string holeName){
-    for(int i = 0; i < 9; i++) {
+    for(int i = 0; i < 13; i++) {
       if(cont >= 5 && !m_holes[i]->state()){
             qDebug() << "Este lugar está vazio: " << m_holes[i];
       }
     }
 }
-
 
 Picaria::Picaria(QWidget *parent)
     : QMainWindow(parent),
@@ -85,17 +84,7 @@ Picaria::Picaria(QWidget *parent)
         QString holeName = QString("hole%1").arg(id+1, 2, 10, QChar('0'));
         Hole* hole = this->findChild<Hole*>(holeName);
         //Q_ASSERT(hole != nullptr);
-      
-    QObject::connect(ui->actionSair, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
-    QObject::connect(ui->actionReset, SIGNAL(triggered(bool)), this, SLOT(reset()));
-    QObject::connect(ui->actionSobre, SIGNAL(triggered(bool)), this, SLOT(showAbout()));
-    QSignalMapper*  map = new QSignalMapper(this);
-    for(int id = 0; id < 9; id++) {
-        int row = id / 3;
-        int col = id % 3;
-        Hole* hole = this->findChild<Hole*>(QString("hole%1%2").arg(row).arg(col));
-        Q_ASSERT(hole != 0);
-  
+
         m_holes[id] = hole;
         map->setMapping(hole, id);
         QObject::connect(hole, SIGNAL(clicked(bool)), map, SLOT(map()));
@@ -124,11 +113,11 @@ void Picaria::setMode(Picaria::Mode mode) {
 }
 
 void Picaria::switchPlayer() {
-    if( cont < 6){
-      m_player = m_player == Picaria::RedPlayer ?
-                   Picaria::BluePlayer : Picaria::RedPlayer;
-      this->updateStatusBar();
-      cont++;
+    if(cont < 6){
+          m_player = m_player == Picaria::RedPlayer ?
+                  Picaria::BluePlayer : Picaria::RedPlayer;
+       this->updateStatusBar();
+       cont++;
     }
 }
 
@@ -136,18 +125,18 @@ void Picaria::play(int id) {
     Hole* hole = m_holes[id];
 
     qDebug() << "clicked on: " << hole->objectName();
+
     if(cont < 6){
-        hole->setState(player2state(m_player));
+            hole->setState(player2state(m_player));
     }
 
     checkNeighborhood(hole);
-
     this->switchPlayer();
 }
 
 void Picaria::reset() {
-    // Reset each hole.
     cont = 0;
+    // Reset each hole.
     for (int id = 0; id < 13; ++id) {
         Hole* hole = m_holes[id];
         hole->reset();

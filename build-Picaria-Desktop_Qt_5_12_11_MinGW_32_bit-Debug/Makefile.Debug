@@ -811,13 +811,40 @@ debug/Picaria.o: ../Picaria/Picaria.cpp ../Picaria/Picaria.h \
 		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt/5.12.11/mingw73_32/include/QtGui/qicon.h \
 		ui_Picaria.h \
+		../Picaria/Hole.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtCore/QObject \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QPushButton \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtCore/QVariant \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QAction \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qaction.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qactiongroup.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QApplication \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qapplication.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtCore/qcoreapplication.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtCore/qeventloop.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtGui/qguiapplication.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtGui/qinputmethod.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QGridLayout \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qlayout.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QMenu \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qmenu.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QMenuBar \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qmenubar.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QSpacerItem \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QStatusBar \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qstatusbar.h \
+		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QWidget \
 		E:/Qt/5.12.11/mingw73_32/include/QtCore/QDebug \
 		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QMessageBox \
 		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qmessagebox.h \
 		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qdialog.h \
 		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/QActionGroup \
-		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qactiongroup.h \
-		E:/Qt/5.12.11/mingw73_32/include/QtWidgets/qaction.h \
 		E:/Qt/5.12.11/mingw73_32/include/QtCore/QSignalMapper \
 		E:/Qt/5.12.11/mingw73_32/include/QtCore/qsignalmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Picaria.o ..\Picaria\Picaria.cpp

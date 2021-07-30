@@ -31,6 +31,7 @@ signals:
 
 private:
     State m_state;
+
     int cont = 0;
     static QPixmap stateToPixmap(State state);
 
