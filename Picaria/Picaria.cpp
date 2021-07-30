@@ -5,6 +5,10 @@
 #include <QMessageBox>
 #include <QActionGroup>
 #include <QSignalMapper>
+#include <string>
+#include <vector>
+
+using std::vector;
 
 Picaria::Player state2player(Hole::State state) {
     switch (state) {
@@ -23,39 +27,44 @@ Hole::State player2state(Picaria::Player player) {
 
 void Picaria::checkNeighborhood(Hole* hole) {
     if(hole->objectName() == "hole01"){
-        emptyLocale("hole01");
+        std::string hole[] = {"hole02", "hole06", "hole07"};
+        emptyLocale(hole);
+
     } else if(hole->objectName() == "hole02"){
-         emptyLocale("hole02");
+
     } else if(hole->objectName() == "hole03"){
-       emptyLocale("hole03");
+
     } else if(hole->objectName() == "hole04"){
-        emptyLocale("hole04");
+
     } else if(hole->objectName() == "hole05"){
-        emptyLocale("hole05");
+
     } else if(hole->objectName() == "hole06"){
-        emptyLocale("hole06");
+
     } else if(hole->objectName() == "hole07"){
-        emptyLocale("hole07");
+
     } else if(hole->objectName() == "hole08"){
-        emptyLocale("hole08");
+
     } else if(hole->objectName() == "hole09"){
-        emptyLocale("hole09");
+
     } else if(hole->objectName() == "hole10"){
-        emptyLocale("hole10");
+
     } else if(hole->objectName() == "hole11"){
-        emptyLocale("hole11");
+
     } else if(hole->objectName() == "hole12"){
-        emptyLocale("hole12");
+
     } else if(hole->objectName() == "hole13"){
-       emptyLocale("hole13");
+
     }
 }
 
-void Picaria::emptyLocale(std::string holeName){
-    for(int i = 0; i < 13; i++) {
-      if(cont >= 5 && !m_holes[i]->state()){
-            qDebug() << "Este lugar está vazio: " << m_holes[i];
-      }
+void Picaria::emptyLocale(std::string hole[]){
+    for(int i = 0; i < 13; i++){
+        if(m_holes[i]->objectName().toUtf8().constData() == hole[i]){
+            qDebug() << m_holes[i]->objectName().toUtf8().constData();
+            if(!m_holes[i]->state()){
+                qDebug() << m_holes[i]->objectName();
+            }
+        }
     }
 }
 

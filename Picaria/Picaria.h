@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <string>
+#include <vector>
+
+using std::vector;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -53,7 +56,7 @@ private:
 
     int cont = 0;
 
-    void emptyLocale(std::string hole);
+    void emptyLocale(std::string hole[]);
     void checkNeighborhood(Hole* hole);
     void switchPlayer();
 
